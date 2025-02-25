@@ -7,21 +7,24 @@ mod scripting;
 
 use raylib::prelude::*;
 use anyhow::Result;
-use eframe::{run_native, NativeOptions};
+use eframe::{run_native, NativeOptions, egui};
 
-fn main() {
+fn main() -> Result<(), eframe::Error> {
+    let options = eframe::NativeOptions::default();
 
+    eframe::run_native(
+        "Hello World",
+        options,
+        Box::new(|_cc| Ok(Box::new(HelloApp) as Box<dyn eframe::App>)),
+    )
+}
 
+struct HelloApp;
 
-    //let (mut rl, thread) = raylib::init()
-    //    .size(640, 480)
-    //    .title("Hello, World")
-    //    .build();
-
-    //while !rl.window_should_close() {
-    //    let mut d = rl.begin_drawing(&thread);
-
-    //    d.clear_background(Color::WHITE);
-    //    d.draw_text("Hello, world!", 12, 12, 20, Color::BLACK);
-    //}
+impl eframe::App for HelloApp {
+    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        egui::CentralPanel::default().show(ctx, |ui| {
+            ui.label("Hello, World!");
+        });
+    }
 }
