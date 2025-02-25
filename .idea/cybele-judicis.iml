@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/cybele-judicis/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/crates/cybele-judicis/target" />
       <excludeFolder url="file://$MODULE_DIR$/cybele-judicis/target" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
